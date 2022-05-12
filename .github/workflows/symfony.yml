@@ -1,6 +1,7 @@
 name: Symfony
 
-on: push 
+on: [ push, pull_request]
+
 
 permissions:
   contents: read
@@ -36,8 +37,10 @@ jobs:
       env:
         DATABASE_URL: sqlite:///%kernel.project_dir%/data/database.sqlite
       run: bin/phpunit
+
   job2:
     needs: symfony-tests
     steps:
     - name: ls
       run: ls -la
+
