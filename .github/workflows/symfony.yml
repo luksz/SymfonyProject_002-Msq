@@ -40,6 +40,7 @@ jobs:
 
   job2:
     needs: symfony-tests
+    runs-on: ubuntu-latest
     steps:
     - name: ls
       run: ls -la
