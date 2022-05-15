@@ -22,3 +22,10 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    _instanceof:
+        App\MessageHandler\CommandHandlerInterface:
+            tags:
+                - { name: messager.message_handler, bus: command.bus }
+        App\MessageHandler\QueryHandlerInterface:
+            tags:
+                - { name: messager.message_handler, bus: query.bus }
